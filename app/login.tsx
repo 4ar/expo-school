@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Input from './shared/input/input';
-import Button from './shared/Button/button';
-import { ErrorNotification } from './shared/ErrorNotification/ErrorNotification';
+import Input from '../shared/input/input';
+import Button from '../shared/Button/button';
+import { ErrorNotification } from '../shared/ErrorNotification/ErrorNotification';
 import { useState } from 'react';
+import CustomLink from '../shared/CustomLink/CustomLink';
+import { Fonts } from '../shared/tokens';
 
-export default function App() {
+export default function Login() {
 	const [error, setError] = useState<string | undefined>();
 
 	const alert = () => {
@@ -20,7 +22,7 @@ export default function App() {
 			<View style={styles.content}>
 				<Image
 					style={styles.logo}
-					source={require('./assets/logo.png')}
+					source={require('../assets/logo.png')}
 					resizeMode="contain"
 				/>
 				<View style={styles.formLogin}>
@@ -30,8 +32,7 @@ export default function App() {
 						<Button text="Войти" onPress={alert} />
 					</View>
 				</View>
-
-				<Text style={styles.recoverPass}>Восстановить пароль</Text>
+				<CustomLink href={'restore'} text="Восстановить пароль" />
 			</View>
 		</View>
 	);
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
 		color: '#A97BFF',
 		lineHeight: 22,
 		fontSize: 18,
-		alignSelf: 'center',
+		textAlign: 'center',
+		fontFamily: Fonts.semibold,
 	},
 });

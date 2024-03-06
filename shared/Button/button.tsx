@@ -62,5 +62,6 @@ const styles = StyleSheet.create({
 		color: '#FAFAFA',
 		lineHeight: 20,
 		fontSize: 16,
+		fontFamily: 'FiraSansRegular',
 	},
 });

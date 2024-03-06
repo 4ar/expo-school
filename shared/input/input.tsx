@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
 		lineHeight: 20,
 		fontSize: 16,
 		borderRadius: 10,
+		fontFamily: 'FiraSansRegular',
 	},
 	eyeIcon: {
 		position: 'absolute',

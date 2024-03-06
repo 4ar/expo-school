@@ -17,7 +17,6 @@ export function ErrorNotification({ error }: ErrorNotificationProps) {
 		if (!error) {
 			return;
 		}
-
 		setIsShow(true);
 		const timerId = setTimeout(() => {
 			setIsShow(false);
