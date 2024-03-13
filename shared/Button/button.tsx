@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import {
 	Animated,
 	Pressable,
@@ -6,12 +7,15 @@ import {
 	Text,
 	View,
 	GestureResponderEvent,
+	ActivityIndicator,
 } from 'react-native';
+import { Colors } from '../tokens';
 
 export default function Button({
 	text,
+	isLoadind,
 	...props
-}: PressableProps & { text: string }) {
+}: PressableProps & { text: string; isLoadind?: boolean }) {
 	const animatedValue = new Animated.Value(0);
 	const color = animatedValue.interpolate({
 		inputRange: [0, 100],
@@ -44,7 +48,10 @@ export default function Button({
 					backgroundColor: color,
 				}}
 			>
-				<Text style={styles.text}>{text}</Text>
+				{!isLoadind && <Text style={styles.text}>{text}</Text>}
+				{isLoadind && (
+					<ActivityIndicator size={'large'} color={Colors.white} />
+				)}
 			</Animated.View>
 		</Pressable>
 	);
